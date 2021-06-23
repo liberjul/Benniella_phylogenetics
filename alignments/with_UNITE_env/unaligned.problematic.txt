@@ -1,0 +1,11 @@
+Benniella_sp_AP5_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JL1_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JL29_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JL62_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JL122_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JU15B_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JU17_SSU-LSU	End of SSU sequence not found
+Benniella_sp_JU20_SSU-LSU	End of SSU sequence not found
+Benniella_erionia_TYPE_GBAus27b_SSU-LSU	End of SSU sequence not found
+Benniella_sp_AD185_SSU-LSU	End of SSU sequence not found
+Modicella_sp_MES2146_SSU-LSU	End of SSU sequence not found
