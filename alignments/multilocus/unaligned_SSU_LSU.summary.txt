@@ -1,0 +1,3 @@
+ITSx run started at Tue Jun 29 09:21:09 2021.
+-----------------------------------------------------------------
+Number of sequences in input file:       	0

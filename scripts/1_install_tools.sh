@@ -1,2 +1,1 @@
-yes | conda install -c bioconda muscle
-yes | conda install -c bioconda itsx
+yes | conda install -c bioconda muscle itsx raxml-ng modeltest-ng

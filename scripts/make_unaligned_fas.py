@@ -19,7 +19,7 @@ for locus in loci:
                 buffer = F"{buffer}{header}\n{seq}\n"
         else:
             buffer = F"{buffer}>{strain}_{locus}\n-\n"
-    with open(F"../alignments/unaligned_{locus}.fas", "w") as ofile:
+    with open(F"../alignments/multilocus/unaligned_{locus}.fasta", "w") as ofile:
         ofile.write(buffer)
 # files = glob.glob(args.input)
 #

@@ -85,6 +85,8 @@ with open(F"{args.output}_part_file.txt", "w") as ofile:
     start = 1
     for locus in fastas:
         out_locus = locus.split("/")[-1].strip("aligned.").strip("_trimmed.fasta")
+        if "SSU-LSU." in out_locus:
+            out_locus = out_locus.split("SSU-LSU.")[1]
         stop = start + len_dict[locus] - 1
         ofile.write(F"DNA, {out_locus} = {start}-{stop}\n")
         start = stop + 1

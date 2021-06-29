@@ -1,0 +1,10 @@
+AP5_SSU-LSU	End of SSU sequence not found
+JL1_SSU-LSU	End of SSU sequence not found
+JL29_SSU-LSU	End of SSU sequence not found
+JL62_SSU-LSU	End of SSU sequence not found
+JL122_SSU-LSU	End of SSU sequence not found
+JU15B_SSU-LSU	End of SSU sequence not found
+JU17_SSU-LSU	End of SSU sequence not found
+JU20_SSU-LSU	End of SSU sequence not found
+GBAus27b_SSU-LSU	End of SSU sequence not found
+AD185_SSU-LSU	End of SSU sequence not found
