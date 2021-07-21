@@ -13,7 +13,7 @@ with open(args.input, "r") as ifile:
         line = ifile.readline()
         while line != "":
             if line[0] == ">":
-                out_line = line.split("|")[0].strip().strip(args.extra) + "\n"
+                out_line = line.split("|")[0].strip().split(args.extra)[0] + "\n"
             else:
                 out_line = line
             ofile.write(out_line)

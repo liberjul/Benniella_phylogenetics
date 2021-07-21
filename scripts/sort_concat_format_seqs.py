@@ -20,6 +20,15 @@ def external_unknown(seq, char="N"):
             out_seq += seq[i]
     return out_seq
 
+def count_stop_codons(seq):
+    seq = seq.upper()
+    stop_set = set(["TAG", "TAA", "TGA"])
+    count = 0
+    for i in range(0, len(seq), 3):
+        if seq[i:i+3] in stop_set:
+            count += 1
+    return count
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str, help="input FASTA")
 parser.add_argument("-o", "--output", type=str, help="output files path and prefix")
@@ -48,7 +57,7 @@ for f in fastas:
                     line = ifile.readline()
                 seq_dict[f][header] = seq
                 len_dict[f] = len(seq)
-
+print(header_list)
 for f in fastas:
     buffer = ""
     for rec in header_list:
@@ -87,6 +96,8 @@ with open(F"{args.output}_part_file.txt", "w") as ofile:
         out_locus = locus.split("/")[-1].strip("aligned.").strip("_trimmed.fasta")
         if "SSU-LSU." in out_locus:
             out_locus = out_locus.split("SSU-LSU.")[1]
+        if "1870" in out_locus:
+            out_locus = "XDH"
         stop = start + len_dict[locus] - 1
         ofile.write(F"DNA, {out_locus} = {start}-{stop}\n")
         start = stop + 1
@@ -115,13 +126,18 @@ out_locus_list = []
 start = 1
 for locus in fastas:
     out_locus = locus.split("/")[-1].strip("aligned.").strip("_trimmed.fasta")
+    if "SSU-LSU." in out_locus:
+        out_locus = out_locus.split("SSU-LSU.")[1]
+    if "1870" in out_locus:
+        out_locus = "XDH"
     stop = start + len_dict[locus] - 1
     buffer += F"\tcharset {out_locus} =  {start} - {stop};\n"
     out_locus_list.append(out_locus)
     start = stop + 1
 
 buffer += F"\tpartition currentPartition = {len(out_locus_list)}: {', '.join(out_locus_list)};\n"
-buffer += F"\tlset applyto=({str(list(range(len(out_locus_list) +1)))[1:-1]});\n\n"
+buffer += F"\tset partition = currentPartition;\n"
+buffer += F"\tlset applyto=({str(list(range(1,len(out_locus_list) +1)))[1:-1]});\n\n"
 buffer += "\tlset nst = 6 rates=invgamma;\n\tunlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all);\n"
 buffer += "\tprset applyto=(all) ratepr=variable;\n\tmcmcp ngen= 10000000 relburnin=yes burninfrac=0.25 printfreq=1000  samplefreq=1000 nchains=4 savebrlens=yes;\n"
 buffer += "\tmcmc;\n\tsumt;\nend;\n"
