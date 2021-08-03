@@ -1,0 +1,1159 @@
+--------------------------------------------------------------------------------
+ModelTest-NG vx.y.z
+
+Input data:
+  MSA:        ../alignments/multilocus/concat_Ben_multilocus.phy
+  Tree:       Maximum parsimony
+    file:           -
+  #taxa:            15
+  #sites:           6258
+  #patterns (sum):  1249
+  Max. thread mem:  2 MB
+
+Output:
+  Log:           ../modeltest_results/multilocus/modeltest_ng_ben_multilocus_2021_08_03_+G.log
+  Starting tree: ../modeltest_results/multilocus/modeltest_ng_ben_multilocus_2021_08_03_+G.tree
+  Results:       ../modeltest_results/multilocus/modeltest_ng_ben_multilocus_2021_08_03_+G.out
+
+Selection options:
+  # dna schemes:      11
+  # dna models:       22
+  include model parameters:
+    Uniform:         false
+    p-inv (+I):      false
+    gamma (+G):      true
+    both (+I+G):     false
+    free rates (+R): false
+    fixed freqs:     true
+    estimated freqs: true
+    #categories:     4
+  gamma rates mode:   mean
+  asc bias:           none
+  epsilon (opt):      0.01
+  epsilon (par):      0.05
+  keep branches:      false
+
+Additional options:
+  verbosity:        high
+  threads:          22/2
+  RNG seed:         12345
+  subtree repeats:  enabled
+Partitions:    ../alignments/multilocus/concat_Ben_multilocus_part_file.txt
+               8 partitions
+               ----------
+                  1 [NT] XDH : 1-1631 
+                  2 [NT] EF1 : 1632-2862 
+                  3 [NT] RPB1 : 2863-4288 
+                  4 [NT] 5_8S : 4289-4446 
+                  5 [NT] ITS1 : 4447-4727 
+                  6 [NT] ITS2 : 4728-5083 
+                  7 [NT] LSU : 5084-6195 
+                  8 [NT] SSU : 6196-6258 
+               ----------
+                  8 DNA partitions
+--------------------------------------------------------------------------------
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2     -5377.9124     11009.3317         0.0000    0.3274
+       2  TPM2+G4            3     -5373.9928     11010.2340         0.9023    0.2085
+       3  TrNef+G4           3     -5373.9986     11010.2456         0.9138    0.2073
+       4  TIM2ef+G4          4     -5370.1462     11011.2826         1.9508    0.1235
+       5  TPM1+G4            3     -5375.4507     11013.1498         3.8181    0.0485
+       6  TPM2uf+G4          6     -5362.6739     11013.8210         4.4893    0.0347
+       7  TIM1ef+G4          4     -5371.4757     11013.9416         4.6099    0.0327
+       8  TPM3+G4            3     -5377.2903     11016.8292         7.4974    0.0077
+       9  TIM3ef+G4          4     -5373.4933     11017.9767         8.6450    0.0043
+      10  HKY+G4             5     -5370.0904     11019.9126        10.5808    0.0017
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              K80+G4
+lnL:                -5377.9124
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 5.0836 1.0000 1.0000 5.0836 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1122
+Score:              11009.3317
+Weight:             0.3274
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0383
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1157
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2107 0.2780 0.2593 0.2521 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  GTR+G4             9     -5357.8896     10787.7793         0.0000    0.4583
+       2  TVM+G4             8     -5359.1002     10788.2004         0.4212    0.3712
+       3  TIM2+G4            7     -5361.5173     10791.0346         3.2553    0.0900
+       4  TPM2uf+G4          6     -5362.6739     10791.3477         3.5685    0.0770
+       5  SYM+G4             6     -5366.7343     10799.4686        11.6893    0.0013
+       6  TIM1+G4            7     -5366.4316     10800.8632        13.0839    0.0007
+       7  TPM1uf+G4          6     -5368.0239     10802.0478        14.2686    0.0004
+       8  TIM2ef+G4          4     -5370.1462     10802.2925        14.5132    0.0003
+       9  TrN+G4             6     -5368.5610     10803.1221        15.3428    0.0002
+      10  TIM3+G4            7     -5367.6176     10803.2351        15.4559    0.0002
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              GTR+G4
+lnL:                -5357.8896
+Frequencies:        0.2144 0.2768 0.2620 0.2469
+Subst. Rates:       1.9108 8.3672 3.8724 1.5356 10.8071 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1185
+Score:              10787.7793
+Weight:             0.4583
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9981
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1153
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2125 0.2778 0.2609 0.2488 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012345 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model GTR+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTR+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  GTR+G4             9     -5357.8896     10787.7793         0.0000    0.4583
+       2  TVM+G4             8     -5359.1002     10788.2004         0.4212    0.3712
+       3  TIM2+G4            7     -5361.5173     10791.0346         3.2553    0.0900
+       4  TPM2uf+G4          6     -5362.6739     10791.3477         3.5685    0.0770
+       5  SYM+G4             6     -5366.7343     10799.4686        11.6893    0.0013
+       6  TIM1+G4            7     -5366.4316     10800.8632        13.0839    0.0007
+       7  TPM1uf+G4          6     -5368.0239     10802.0478        14.2686    0.0004
+       8  TIM2ef+G4          4     -5370.1462     10802.2925        14.5132    0.0003
+       9  TrN+G4             6     -5368.5610     10803.1221        15.3428    0.0002
+      10  TIM3+G4            7     -5367.6176     10803.2351        15.4559    0.0002
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              GTR+G4
+lnL:                -5357.8896
+Frequencies:        0.2144 0.2768 0.2620 0.2469
+Subst. Rates:       1.9108 8.3672 3.8724 1.5356 10.8071 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1185
+Score:              10787.7793
+Weight:             0.4583
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9981
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1153
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2125 0.2778 0.2609 0.2488 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012345 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model GTR+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTR+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrNef+G4           3     -3116.3279      6494.9043         0.0000    0.5891
+       2  TIM2ef+G4          4     -3113.0678      6497.1257         2.2214    0.1940
+       3  TIM1ef+G4          4     -3113.8417      6498.6734         3.7691    0.0895
+       4  TIM2+G4            7     -3100.9539      6499.1227         4.2185    0.0715
+       5  TrN+G4             6     -3105.8506      6500.1746         5.2703    0.0422
+       6  TIM3ef+G4          4     -3116.3154      6503.6210         8.7167    0.0075
+       7  TIM1+G4            7     -3103.7645      6504.7439         9.8396    0.0043
+       8  SYM+G4             6     -3109.5524      6507.5781        12.6738    0.0010
+       9  TIM3+G4            7     -3105.8376      6508.8901        13.9858    0.0005
+      10  GTR+G4             9     -3097.5981      6509.8943        14.9900    0.0003
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              TrNef+G4
+lnL:                -3116.3279
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 12.7809 1.0000 1.0000 1.4528 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0218
+Score:              6494.9043
+Weight:             0.5891
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1189
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0218
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2305 0.2497 0.3004 0.2193 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010020 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TrNef+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TrNef+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  GTR+G4             9     -3097.5981      6267.1961         0.0000    0.7809
+       2  TIM2+G4            7     -3100.9539      6269.9078         2.7117    0.2013
+       3  TIM1+G4            7     -3103.7645      6275.5289         8.3328    0.0121
+       4  TrN+G4             6     -3105.8506      6277.7013        10.5052    0.0041
+       5  TIM3+G4            7     -3105.8376      6279.6751        12.4790    0.0015
+       6  SYM+G4             6     -3109.5524      6285.1047        17.9086    0.0001
+       7  TIM2ef+G4          4     -3113.0678      6288.1356        20.9395    0.0000
+       8  TIM1ef+G4          4     -3113.8417      6289.6833        22.4872    0.0000
+       9  TrNef+G4           3     -3116.3279      6292.6558        25.4597    0.0000
+      10  TIM3ef+G4          4     -3116.3154      6294.6309        27.4348    0.0000
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              GTR+G4
+lnL:                -3097.5981
+Frequencies:        0.2287 0.2501 0.3021 0.2191
+Subst. Rates:       5.1553 55.8610 9.9613 3.8312 6.9609 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0221
+Score:              6267.1961
+Weight:             0.7809
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9999
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0220
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2288 0.2500 0.3020 0.2192 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012345 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model GTR+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTR+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  GTR+G4             9     -3097.5981      6267.1961         0.0000    0.7809
+       2  TIM2+G4            7     -3100.9539      6269.9078         2.7117    0.2013
+       3  TIM1+G4            7     -3103.7645      6275.5289         8.3328    0.0121
+       4  TrN+G4             6     -3105.8506      6277.7013        10.5052    0.0041
+       5  TIM3+G4            7     -3105.8376      6279.6751        12.4790    0.0015
+       6  SYM+G4             6     -3109.5524      6285.1047        17.9086    0.0001
+       7  TIM2ef+G4          4     -3113.0678      6288.1356        20.9395    0.0000
+       8  TIM1ef+G4          4     -3113.8417      6289.6833        22.4872    0.0000
+       9  TrNef+G4           3     -3116.3279      6292.6558        25.4597    0.0000
+      10  TIM3ef+G4          4     -3116.3154      6294.6309        27.4348    0.0000
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              GTR+G4
+lnL:                -3097.5981
+Frequencies:        0.2287 0.2501 0.3021 0.2191
+Subst. Rates:       5.1553 55.8610 9.9613 3.8312 6.9609 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0221
+Score:              6267.1961
+Weight:             0.7809
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9999
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0220
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2288 0.2500 0.3020 0.2192 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012345 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model GTR+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTR+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2     -5364.3642     10982.2352         0.0000    0.6599
+       2  TrNef+G4           3     -5360.8091     10983.8667         1.6315    0.2919
+       3  TPM1+G4            3     -5362.9687     10988.1858         5.9507    0.0337
+       4  TIM1ef+G4          4     -5359.7467     10990.4836         8.2484    0.0107
+       5  TIM3ef+G4          4     -5360.7487     10992.4875        10.2523    0.0039
+       6  HKY+G4             5     -5363.4164     11006.5645        24.3293    0.0000
+       7  TrN+G4             6     -5359.4885     11007.4502        25.2150    0.0000
+       8  TPM1uf+G4          6     -5362.0951     11012.6636        30.4284    0.0000
+       9  TIM1+G4            7     -5358.4152     11014.0454        31.8102    0.0000
+      10  TIM3+G4            7     -5359.4403     11016.0955        33.8603    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              K80+G4
+lnL:                -5364.3642
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 6.5546 1.0000 1.0000 6.5546 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1680
+Score:              10982.2352
+Weight:             0.6599
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1690
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2475 0.2580 0.2539 0.2406 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM1ef+G4          4     -5359.7467     10781.4935         0.0000    0.3399
+       2  TrNef+G4           3     -5360.8091     10781.6182         0.1248    0.3194
+       3  TIM3ef+G4          4     -5360.7487     10783.4974         2.0040    0.1248
+       4  TIM1+G4            7     -5358.4152     10784.8304         3.3369    0.0641
+       5  TrN+G4             6     -5359.4885     10784.9769         3.4834    0.0596
+       6  TPM1+G4            3     -5362.9687     10785.9374         4.4439    0.0368
+       7  K80+G4             2     -5364.3642     10786.7283         5.2349    0.0248
+       8  TIM3+G4            7     -5359.4403     10786.8805         5.3870    0.0230
+       9  TPM1uf+G4          6     -5362.0951     10790.1902         8.6968    0.0044
+      10  HKY+G4             5     -5363.4164     10790.8328         9.3393    0.0032
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TIM1ef+G4
+lnL:                -5359.7467
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 7.2426 1.5996 1.5996 10.3153 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1726
+Score:              10781.4935
+Weight:             0.3399
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1542
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1710
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2519 0.2536 0.2580 0.2365 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012230 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TIM1ef+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TIM1ef+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM1ef+G4          4     -5359.7467     10781.4935         0.0000    0.3399
+       2  TrNef+G4           3     -5360.8091     10781.6182         0.1248    0.3194
+       3  TIM3ef+G4          4     -5360.7487     10783.4974         2.0040    0.1248
+       4  TIM1+G4            7     -5358.4152     10784.8304         3.3369    0.0641
+       5  TrN+G4             6     -5359.4885     10784.9769         3.4834    0.0596
+       6  TPM1+G4            3     -5362.9687     10785.9374         4.4439    0.0368
+       7  K80+G4             2     -5364.3642     10786.7283         5.2349    0.0248
+       8  TIM3+G4            7     -5359.4403     10786.8805         5.3870    0.0230
+       9  TPM1uf+G4          6     -5362.0951     10790.1902         8.6968    0.0044
+      10  HKY+G4             5     -5363.4164     10790.8328         9.3393    0.0032
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TIM1ef+G4
+lnL:                -5359.7467
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 7.2426 1.5996 1.5996 10.3153 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.1726
+Score:              10781.4935
+Weight:             0.3399
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1542
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.1710
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2519 0.2536 0.2580 0.2365 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012230 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TIM1ef+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TIM1ef+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1      -252.1338       749.0328         0.0000    0.8889
+       2  K80+G4             2      -249.8690       753.2449         4.2121    0.1082
+       3  TPM2+G4            3      -250.2868       762.8222        13.7894    0.0009
+       4  TPM3+G4            3      -250.3018       762.8521        13.8193    0.0009
+       5  TrNef+G4           3      -250.5834       763.4152        14.3824    0.0007
+       6  TPM1+G4            3      -251.0117       764.2719        15.2391    0.0004
+       7  TIM3ef+G4          4      -249.8275       770.6450        21.6123    0.0000
+       8  TIM2ef+G4          4      -250.2070       771.4040        22.3712    0.0000
+       9  TIM1ef+G4          4      -250.2145       771.4190        22.3862    0.0000
+      10  F81+G4             4      -250.9679       772.9259        23.8931    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              JC+G4
+lnL:                -252.1338
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              749.0328
+Weight:             0.8889
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0215
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2764 0.2142 0.2267 0.2826 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model JC+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m JC+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2      -249.8690       557.7380         0.0000    0.3513
+       2  JC+G4              1      -252.1338       560.2675         2.5295    0.0992
+       3  TPM2+G4            3      -250.2868       560.5737         2.8357    0.0851
+       4  TPM3+G4            3      -250.3018       560.6036         2.8656    0.0838
+       5  TrNef+G4           3      -250.5834       561.1667         3.4287    0.0633
+       6  HKY+G4             5      -248.6736       561.3473         3.6092    0.0578
+       7  TIM3ef+G4          4      -249.8275       561.6549         3.9169    0.0496
+       8  TPM1+G4            3      -251.0117       562.0234         4.2854    0.0412
+       9  TIM2ef+G4          4      -250.2070       562.4139         4.6759    0.0339
+      10  TIM1ef+G4          4      -250.2145       562.4289         4.6909    0.0337
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              K80+G4
+lnL:                -249.8690
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 6.4349 1.0000 1.0000 6.4349 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              557.7380
+Weight:             0.3513
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1420
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0214
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2760 0.2143 0.2259 0.2837 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2      -249.8690       557.7380         0.0000    0.3513
+       2  JC+G4              1      -252.1338       560.2675         2.5295    0.0992
+       3  TPM2+G4            3      -250.2868       560.5737         2.8357    0.0851
+       4  TPM3+G4            3      -250.3018       560.6036         2.8656    0.0838
+       5  TrNef+G4           3      -250.5834       561.1667         3.4287    0.0633
+       6  HKY+G4             5      -248.6736       561.3473         3.6092    0.0578
+       7  TIM3ef+G4          4      -249.8275       561.6549         3.9169    0.0496
+       8  TPM1+G4            3      -251.0117       562.0234         4.2854    0.0412
+       9  TIM2ef+G4          4      -250.2070       562.4139         4.6759    0.0339
+      10  TIM1ef+G4          4      -250.2145       562.4289         4.6909    0.0337
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              K80+G4
+lnL:                -249.8690
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 6.4349 1.0000 1.0000 6.4349 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              557.7380
+Weight:             0.3513
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1420
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0214
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2760 0.2143 0.2259 0.2837 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2      -997.8630      2249.2329         0.0000    0.9134
+       2  TPM3+G4            3      -996.7475      2255.7436         6.5107    0.0352
+       3  TrNef+G4           3      -997.0740      2256.3965         7.1637    0.0254
+       4  TPM1+G4            3      -997.8094      2257.8673         8.6344    0.0122
+       5  TPM2+G4            3      -997.8723      2257.9931         8.7602    0.0114
+       6  TIM3ef+G4          4      -996.0725      2263.1351        13.9023    0.0009
+       7  HKY+G4             5      -991.9571      2263.6460        14.4131    0.0007
+       8  TIM2ef+G4          4      -996.9308      2264.8517        15.6188    0.0004
+       9  TIM1ef+G4          4      -997.0780      2265.1460        15.9132    0.0003
+      10  JC+G4              1     -1011.9733      2268.7119        19.4791    0.0001
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              K80+G4
+lnL:                -997.8630
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 3.5544 1.0000 1.0000 3.5544 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2348
+Score:              2249.2329
+Weight:             0.9134
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0007
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2335
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2536 0.2354 0.1961 0.3148 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TPM2uf+G4          6      -990.4983      2046.9966         0.0000    0.2818
+       2  HKY+G4             5      -991.9571      2047.9143         0.9177    0.1781
+       3  TIM2+G4            7      -990.3856      2048.7713         1.7747    0.1160
+       4  TPM3uf+G4          6      -991.6068      2049.2136         2.2169    0.0930
+       5  TPM1uf+G4          6      -991.8036      2049.6072         2.6106    0.0764
+       6  TrN+G4             6      -991.8814      2049.7628         2.7662    0.0707
+       7  TVM+G4             8      -990.2796      2050.5592         3.5626    0.0475
+       8  TIM3+G4            7      -991.5802      2051.1604         4.1638    0.0351
+       9  TIM1+G4            7      -991.7295      2051.4590         4.4624    0.0303
+      10  GTR+G4             9      -990.2278      2052.4556         5.4590    0.0184
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TPM2uf+G4
+lnL:                -990.4983
+Frequencies:        0.2668 0.2340 0.1847 0.3146
+Subst. Rates:       0.4029 2.2603 0.4029 1.0000 2.2603 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2729
+Score:              2046.9966
+Weight:             0.2818
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9473
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2613
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2605 0.2348 0.1919 0.3127 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010212 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TPM2uf+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TPM2uf+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TPM2uf+G4          6      -990.4983      2046.9966         0.0000    0.2818
+       2  HKY+G4             5      -991.9571      2047.9143         0.9177    0.1781
+       3  TIM2+G4            7      -990.3856      2048.7713         1.7747    0.1160
+       4  TPM3uf+G4          6      -991.6068      2049.2136         2.2169    0.0930
+       5  TPM1uf+G4          6      -991.8036      2049.6072         2.6106    0.0764
+       6  TrN+G4             6      -991.8814      2049.7628         2.7662    0.0707
+       7  TVM+G4             8      -990.2796      2050.5592         3.5626    0.0475
+       8  TIM3+G4            7      -991.5802      2051.1604         4.1638    0.0351
+       9  TIM1+G4            7      -991.7295      2051.4590         4.4624    0.0303
+      10  GTR+G4             9      -990.2278      2052.4556         5.4590    0.0184
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TPM2uf+G4
+lnL:                -990.4983
+Frequencies:        0.2668 0.2340 0.1847 0.3146
+Subst. Rates:       0.4029 2.2603 0.4029 1.0000 2.2603 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2729
+Score:              2046.9966
+Weight:             0.2818
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9473
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2613
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2605 0.2348 0.1919 0.3127 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010212 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TPM2uf+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TPM2uf+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2     -1349.7719      2953.0507         0.0000    0.6141
+       2  TPM1+G4            3     -1346.5516      2955.3518         2.3011    0.1944
+       3  TPM2+G4            3     -1347.0136      2956.2756         3.2250    0.1225
+       4  TPM3+G4            3     -1347.8189      2957.8864         4.8357    0.0547
+       5  TrNef+G4           3     -1349.7352      2961.7189         8.6682    0.0081
+       6  TIM1ef+G4          4     -1346.5328      2964.0557        11.0051    0.0025
+       7  TIM2ef+G4          4     -1346.9668      2964.9238        11.8731    0.0016
+       8  TVMef+G4           5     -1342.7522      2965.2361        12.1855    0.0014
+       9  TIM3ef+G4          4     -1347.8040      2966.5980        13.5473    0.0007
+      10  HKY+G4             5     -1346.8594      2973.4505        20.3998    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              K80+G4
+lnL:                -1349.7719
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 3.3086 1.0000 1.0000 3.3086 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.5647
+Score:              2953.0507
+Weight:             0.6141
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.5587
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2476 0.2287 0.2308 0.2929 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model K80+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m K80+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TVMef+G4           5     -1342.7522      2749.5044         0.0000    0.3138
+       2  TVM+G4             8     -1340.2597      2750.5195         1.0151    0.1889
+       3  SYM+G4             6     -1342.7361      2751.4722         1.9677    0.1173
+       4  GTR+G4             9     -1340.2211      2752.4422         2.9378    0.0722
+       5  TPM2uf+G4          6     -1343.4870      2752.9739         3.4695    0.0554
+       6  TPM1uf+G4          6     -1343.5200      2753.0400         3.5355    0.0536
+       7  TPM1+G4            3     -1346.5516      2753.1033         3.5988    0.0519
+       8  TPM2+G4            3     -1347.0136      2754.0272         4.5227    0.0327
+       9  TIM2+G4            7     -1343.4912      2754.9824         5.4780    0.0203
+      10  TIM1+G4            7     -1343.5001      2755.0002         5.4958    0.0201
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TVMef+G4
+lnL:                -1342.7522
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       0.3492 1.5147 0.2519 0.2851 1.5147 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.5575
+Score:              2749.5044
+Weight:             0.3138
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.4243
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.5513
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2544 0.2332 0.2243 0.2881 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012314 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TVMef+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TVMef+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TVMef+G4           5     -1342.7522      2749.5044         0.0000    0.3138
+       2  TVM+G4             8     -1340.2597      2750.5195         1.0151    0.1889
+       3  SYM+G4             6     -1342.7361      2751.4722         1.9677    0.1173
+       4  GTR+G4             9     -1340.2211      2752.4422         2.9378    0.0722
+       5  TPM2uf+G4          6     -1343.4870      2752.9739         3.4695    0.0554
+       6  TPM1uf+G4          6     -1343.5200      2753.0400         3.5355    0.0536
+       7  TPM1+G4            3     -1346.5516      2753.1033         3.5988    0.0519
+       8  TPM2+G4            3     -1347.0136      2754.0272         4.5227    0.0327
+       9  TIM2+G4            7     -1343.4912      2754.9824         5.4780    0.0203
+      10  TIM1+G4            7     -1343.5001      2755.0002         5.4958    0.0201
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TVMef+G4
+lnL:                -1342.7522
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       0.3492 1.5147 0.2519 0.2851 1.5147 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.5575
+Score:              2749.5044
+Weight:             0.3138
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.4243
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.5513
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2544 0.2332 0.2243 0.2881 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012314 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TVMef+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TVMef+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrN+G4             6     -2184.4360      4657.3454         0.0000    0.5625
+       2  TrNef+G4           3     -2198.8980      4660.0446         2.6991    0.1459
+       3  TIM3ef+G4          4     -2194.8104      4660.6108         3.2654    0.1099
+       4  TIM3+G4            7     -2181.9789      4661.1728         3.8273    0.0830
+       5  K80+G4             2     -2204.6569      4662.8207         5.4752    0.0364
+       6  TPM3+G4            3     -2200.2982      4662.8450         5.4995    0.0360
+       7  TIM1+G4            7     -2184.2772      4665.7693         8.4238    0.0083
+       8  TIM2+G4            7     -2184.4020      4666.0189         8.6734    0.0074
+       9  HKY+G4             5     -2193.6968      4667.1252         9.7798    0.0042
+      10  TIM1ef+G4          4     -2198.6577      4668.3055        10.9601    0.0023
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              TrN+G4
+lnL:                -2184.4360
+Frequencies:        0.2652 0.1873 0.2877 0.2597
+Subst. Rates:       1.0000 3.7489 1.0000 1.0000 12.5506 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0218
+Score:              4657.3454
+Weight:             0.5625
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.6666
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0218
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2652 0.1878 0.2876 0.2594 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 010020 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TrN+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TrN+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM3+G4            7     -2181.9789      4431.9578         0.0000    0.6357
+       2  TrN+G4             6     -2184.4360      4434.8721         2.9143    0.1481
+       3  GTR+G4             9     -2181.8736      4435.7472         3.7894    0.0956
+       4  TIM1+G4            7     -2184.2772      4436.5543         4.5965    0.0638
+       5  TIM2+G4            7     -2184.4020      4436.8039         4.8461    0.0564
+       6  TPM3uf+G4          6     -2190.6987      4447.3973        15.4395    0.0003
+       7  TVM+G4             8     -2190.5871      4451.1741        19.2163    0.0000
+       8  HKY+G4             5     -2193.6968      4451.3935        19.4357    0.0000
+       9  TIM3ef+G4          4     -2194.8104      4451.6208        19.6629    0.0000
+      10  TPM1uf+G4          6     -2193.5286      4453.0573        21.0994    0.0000
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TIM3+G4
+lnL:                -2181.9789
+Frequencies:        0.2653 0.1906 0.2876 0.2564
+Subst. Rates:       0.3259 2.6899 1.0000 0.3259 8.6981 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0219
+Score:              4431.9578
+Weight:             0.6357
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        1.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0218
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2652 0.1898 0.2877 0.2573 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012032 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TIM3+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TIM3+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM3+G4            7     -2181.9789      4431.9578         0.0000    0.6357
+       2  TrN+G4             6     -2184.4360      4434.8721         2.9143    0.1481
+       3  GTR+G4             9     -2181.8736      4435.7472         3.7894    0.0956
+       4  TIM1+G4            7     -2184.2772      4436.5543         4.5965    0.0638
+       5  TIM2+G4            7     -2184.4020      4436.8039         4.8461    0.0564
+       6  TPM3uf+G4          6     -2190.6987      4447.3973        15.4395    0.0003
+       7  TVM+G4             8     -2190.5871      4451.1741        19.2163    0.0000
+       8  HKY+G4             5     -2193.6968      4451.3935        19.4357    0.0000
+       9  TIM3ef+G4          4     -2194.8104      4451.6208        19.6629    0.0000
+      10  TPM1uf+G4          6     -2193.5286      4453.0573        21.0994    0.0000
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TIM3+G4
+lnL:                -2181.9789
+Frequencies:        0.2653 0.1906 0.2876 0.2564
+Subst. Rates:       0.3259 2.6899 1.0000 0.3259 8.6981 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0219
+Score:              4431.9578
+Weight:             0.6357
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        1.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0218
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2652 0.1898 0.2877 0.2573 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 012032 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model TIM3+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m TIM3+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1       -92.5037       429.7727         0.0000    0.9708
+       2  K80+G4             2       -91.7031       436.9130         7.1403    0.0273
+       3  TrNef+G4           3       -91.2072       444.6628        14.8901    0.0006
+       4  TPM2+G4            3       -91.4710       445.1906        15.4178    0.0004
+       5  TPM3+G4            3       -91.5672       445.3829        15.6102    0.0004
+       6  TPM1+G4            3       -91.6031       445.4547        15.6820    0.0004
+       7  F81+G4             4       -90.3334       451.6569        21.8841    0.0000
+       8  TIM2ef+G4          4       -91.0827       453.1555        23.3828    0.0000
+       9  TIM1ef+G4          4       -91.0865       453.1632        23.3904    0.0000
+      10  TIM3ef+G4          4       -91.1131       453.2163        23.4436    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              JC+G4
+lnL:                -92.5037
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        1.0000
+Score:              429.7727
+Weight:             0.9708
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              3.6468
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.3288 0.1562 0.2810 0.2340 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model JC+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m JC+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1       -92.5037       241.0075         0.0000    0.1743
+       2  K80+G4             2       -91.7031       241.4061         0.3987    0.1428
+       3  TrNef+G4           3       -91.2072       242.4144         1.4069    0.0863
+       4  F81+G4             4       -90.3334       242.6668         1.6593    0.0760
+       5  TPM2+G4            3       -91.4710       242.9421         1.9346    0.0663
+       6  HKY+G4             5       -89.5663       243.1326         2.1251    0.0602
+       7  TPM3+G4            3       -91.5672       243.1344         2.1270    0.0602
+       8  TPM1+G4            3       -91.6031       243.2062         2.1987    0.0581
+       9  TIM2ef+G4          4       -91.0827       244.1654         3.1580    0.0359
+      10  TIM1ef+G4          4       -91.0865       244.1731         3.1656    0.0358
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              JC+G4
+lnL:                -92.5037
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        1.0000
+Score:              241.0075
+Weight:             0.1743
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.2913
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              63.5455
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.3278 0.1571 0.2803 0.2349 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model JC+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m JC+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1       -92.5037       241.0075         0.0000    0.1743
+       2  K80+G4             2       -91.7031       241.4061         0.3987    0.1428
+       3  TrNef+G4           3       -91.2072       242.4144         1.4069    0.0863
+       4  F81+G4             4       -90.3334       242.6668         1.6593    0.0760
+       5  TPM2+G4            3       -91.4710       242.9421         1.9346    0.0663
+       6  HKY+G4             5       -89.5663       243.1326         2.1251    0.0602
+       7  TPM3+G4            3       -91.5672       243.1344         2.1270    0.0602
+       8  TPM1+G4            3       -91.6031       243.2062         2.1987    0.0581
+       9  TIM2ef+G4          4       -91.0827       244.1654         3.1580    0.0359
+      10  TIM1ef+G4          4       -91.0865       244.1731         3.1656    0.0358
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              JC+G4
+lnL:                -92.5037
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        1.0000
+Score:              241.0075
+Weight:             0.1743
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.2913
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              63.5455
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.3278 0.1571 0.2803 0.2349 
+
+Commands:
+  > phyml  -i ../alignments/multilocus/concat_Ben_multilocus.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/multilocus/concat_Ben_multilocus.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/multilocus/concat_Ben_multilocus.phy --model JC+G4
+  > paup -s ../alignments/multilocus/concat_Ben_multilocus.phy
+  > iqtree -s ../alignments/multilocus/concat_Ben_multilocus.phy -m JC+G4
+Done

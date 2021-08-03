@@ -1,0 +1,742 @@
+--------------------------------------------------------------------------------
+ModelTest-NG vx.y.z
+
+Input data:
+  MSA:        ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  Tree:       Maximum parsimony
+    file:           -
+  #taxa:            30
+  #sites:           3078
+  #patterns (sum):  677
+  Max. thread mem:  3 MB
+
+Output:
+  Log:           ../modeltest_results/with_UNITE_env/modeltest_ng_ben_uni_2021_06_30_+G.log
+  Starting tree: ../modeltest_results/with_UNITE_env/modeltest_ng_ben_uni_2021_06_30_+G.tree
+  Results:       ../modeltest_results/with_UNITE_env/modeltest_ng_ben_uni_2021_06_30_+G.out
+
+Selection options:
+  # dna schemes:      11
+  # dna models:       22
+  include model parameters:
+    Uniform:         false
+    p-inv (+I):      false
+    gamma (+G):      true
+    both (+I+G):     false
+    free rates (+R): false
+    fixed freqs:     true
+    estimated freqs: true
+    #categories:     4
+  gamma rates mode:   mean
+  asc bias:           none
+  epsilon (opt):      0.01
+  epsilon (par):      0.05
+  keep branches:      false
+
+Additional options:
+  verbosity:        high
+  threads:          22/2
+  RNG seed:         12345
+  subtree repeats:  enabled
+Partitions:    ../alignments/with_UNITE_env/concat_Ben_UNI_filt_part_file.txt
+               5 partitions
+               ----------
+                  1 [NT] 5_8S : 1-158 
+                  2 [NT] ITS1 : 159-451 
+                  3 [NT] ITS2 : 452-833 
+                  4 [NT] LSU : 834-2423 
+                  5 [NT] SSU : 2424-3078 
+               ----------
+                  5 DNA partitions
+--------------------------------------------------------------------------------
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1      -282.6580      1031.1740         0.0000    0.5563
+       2  K80+G4             2      -278.9420      1031.7741         0.6001    0.4121
+       3  TPM3+G4            3      -277.7692      1037.4606         6.2866    0.0240
+       4  TPM2+G4            3      -279.6213      1041.1647         9.9908    0.0038
+       5  TPM1+G4            3      -280.3848      1042.6918        11.5178    0.0018
+       6  TrNef+G4           3      -280.4953      1042.9128        11.7388    0.0016
+       7  TIM3ef+G4          4      -278.4939      1046.9419        15.7680    0.0002
+       8  TIM1ef+G4          4      -278.7345      1047.4232        16.2493    0.0002
+       9  TIM2ef+G4          4      -278.7889      1047.5319        16.3580    0.0002
+      10  F81+G4             4      -281.4091      1052.7723        21.5983    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              JC+G4
+lnL:                -282.6580
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0221
+Score:              1031.1740
+Weight:             0.5563
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0221
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2819 0.2082 0.2329 0.2769 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model JC+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m JC+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TPM3+G4            3      -277.7692       675.5384         0.0000    0.3171
+       2  K80+G4             2      -278.9420       675.8840         0.3455    0.2668
+       3  TIM3ef+G4          4      -278.4939       678.9878         3.4493    0.0565
+       4  TPM3uf+G4          6      -276.6150       679.2301         3.6916    0.0501
+       5  TPM2+G4            3      -279.6213       679.2426         3.7042    0.0498
+       6  HKY+G4             5      -277.6366       679.2733         3.7349    0.0490
+       7  TIM1ef+G4          4      -278.7345       679.4691         3.9306    0.0444
+       8  TIM2ef+G4          4      -278.7889       679.5778         4.0393    0.0421
+       9  TPM1+G4            3      -280.3848       680.7697         5.2313    0.0232
+      10  TrNef+G4           3      -280.4953       680.9907         5.4522    0.0208
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TPM3+G4
+lnL:                -277.7692
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       0.0200 4.0965 1.0000 0.0200 4.0965 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              675.5384
+Weight:             0.3171
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1452
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0217
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2805 0.2097 0.2316 0.2781 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012012 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TPM3+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TPM3+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TPM3+G4            3      -277.7692       677.5384         0.0000    0.3171
+       2  K80+G4             2      -278.9420       677.8840         0.3455    0.2668
+       3  TIM3ef+G4          4      -278.4939       680.9878         3.4493    0.0565
+       4  TPM3uf+G4          6      -276.6150       681.2301         3.6916    0.0501
+       5  TPM2+G4            3      -279.6213       681.2426         3.7042    0.0498
+       6  HKY+G4             5      -277.6366       681.2733         3.7349    0.0490
+       7  TIM1ef+G4          4      -278.7345       681.4691         3.9306    0.0444
+       8  TIM2ef+G4          4      -278.7889       681.5778         4.0393    0.0421
+       9  TPM1+G4            3      -280.3848       682.7697         5.2313    0.0232
+      10  TrNef+G4           3      -280.4953       682.9907         5.4522    0.0208
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TPM3+G4
+lnL:                -277.7692
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       0.0200 4.0965 1.0000 0.0200 4.0965 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              677.5384
+Weight:             0.3171
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.1452
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0217
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2805 0.2097 0.2316 0.2781 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012012 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TPM3+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TPM3+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  K80+G4             2     -1949.3562      4372.6025         0.0000    0.6687
+       2  TrNef+G4           3     -1946.3581      4374.6383         2.0359    0.2416
+       3  TPM1+G4            3     -1948.6176      4379.1573         6.5548    0.0252
+       4  TPM3+G4            3     -1948.6689      4379.2599         6.6575    0.0240
+       5  TPM2+G4            3     -1949.2441      4380.4103         7.8078    0.0135
+       6  TIM3ef+G4          4     -1945.4413      4380.8368         8.2343    0.0109
+       7  TIM1ef+G4          4     -1945.9872      4381.9285         9.3260    0.0063
+       8  HKY+G4             5     -1942.2704      4382.5271         9.9246    0.0047
+       9  TIM2ef+G4          4     -1946.3792      4382.7126        10.1102    0.0043
+      10  TrN+G4             6     -1940.6318      4387.2818        14.6793    0.0004
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              K80+G4
+lnL:                -1949.3562
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 3.2596 1.0000 1.0000 3.2596 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2958
+Score:              4372.6025
+Weight:             0.6687
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0055
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2945
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2288 0.2263 0.2350 0.3099 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010010 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model K80+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m K80+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrN+G4             6     -1940.6318      4007.2636         0.0000    0.2368
+       2  TIM1+G4            7     -1939.8930      4007.7861         0.5225    0.1823
+       3  HKY+G4             5     -1942.2704      4008.5409         1.2773    0.1250
+       4  TPM1uf+G4          6     -1941.5688      4009.1377         1.8741    0.0928
+       5  TIM2+G4            7     -1940.5908      4009.1816         1.9180    0.0907
+       6  TIM3+G4            7     -1940.6207      4009.2414         1.9778    0.0881
+       7  TPM2uf+G4          6     -1942.2673      4010.5345         3.2710    0.0461
+       8  TPM3uf+G4          6     -1942.2706      4010.5411         3.2776    0.0460
+       9  GTR+G4             9     -1939.8299      4011.6598         4.3962    0.0263
+      10  TrNef+G4           3     -1946.3581      4012.7162         5.4526    0.0155
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TrN+G4
+lnL:                -1940.6318
+Frequencies:        0.2394 0.2160 0.2454 0.2992
+Subst. Rates:       1.0000 2.4279 1.0000 1.0000 4.2057 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2918
+Score:              4007.2636
+Weight:             0.2368
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9470
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2871
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2351 0.2198 0.2419 0.3031 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010020 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TrN+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TrN+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrN+G4             6     -1940.6318      4009.2636         0.0000    0.2368
+       2  TIM1+G4            7     -1939.8930      4009.7861         0.5225    0.1823
+       3  HKY+G4             5     -1942.2704      4010.5409         1.2773    0.1250
+       4  TPM1uf+G4          6     -1941.5688      4011.1377         1.8741    0.0928
+       5  TIM2+G4            7     -1940.5908      4011.1816         1.9180    0.0907
+       6  TIM3+G4            7     -1940.6207      4011.2414         1.9778    0.0881
+       7  TPM2uf+G4          6     -1942.2673      4012.5345         3.2710    0.0461
+       8  TPM3uf+G4          6     -1942.2706      4012.5411         3.2776    0.0460
+       9  GTR+G4             9     -1939.8299      4013.6598         4.3962    0.0263
+      10  TrNef+G4           3     -1946.3581      4014.7162         5.4526    0.0155
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TrN+G4
+lnL:                -1940.6318
+Frequencies:        0.2394 0.2160 0.2454 0.2992
+Subst. Rates:       1.0000 2.4279 1.0000 1.0000 4.2057 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.2918
+Score:              4009.2636
+Weight:             0.2368
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9470
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.2871
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2351 0.2198 0.2419 0.3031 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010020 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TrN+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TrN+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrNef+G4           3     -2604.9561      5691.8343         0.0000    0.4798
+       2  K80+G4             2     -2609.1085      5692.1072         0.2729    0.4186
+       3  TIM1ef+G4          4     -2603.8692      5697.6925         5.8582    0.0256
+       4  TPM1+G4            3     -2607.9598      5697.8416         6.0073    0.0238
+       5  TIM2ef+G4          4     -2604.1943      5698.3427         6.5084    0.0185
+       6  TPM2+G4            3     -2608.4094      5698.7408         6.9065    0.0152
+       7  TIM3ef+G4          4     -2604.8457      5699.6455         7.8112    0.0097
+       8  TPM3+G4            3     -2609.0303      5699.9828         8.1485    0.0082
+       9  HKY+G4             5     -2603.9632      5705.9127        14.0784    0.0004
+      10  TrN+G4             6     -2600.9846      5707.9875        16.1532    0.0001
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              TrNef+G4
+lnL:                -2604.9561
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 2.5103 1.0000 1.0000 4.4913 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.4200
+Score:              5691.8343
+Weight:             0.4798
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0006
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4175
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2526 0.2301 0.2290 0.2883 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010020 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TrNef+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TrNef+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM1+G4            7     -2599.8650      5327.7300         0.0000    0.2079
+       2  TrN+G4             6     -2600.9846      5327.9692         0.2392    0.1844
+       3  TIM2+G4            7     -2600.5334      5329.0668         1.3368    0.1065
+       4  TIM3+G4            7     -2600.7780      5329.5560         1.8260    0.0834
+       5  TIM1ef+G4          4     -2603.8692      5329.7383         2.0083    0.0762
+       6  TrNef+G4           3     -2604.9561      5329.9122         2.1822    0.0698
+       7  GTR+G4             9     -2599.1116      5330.2232         2.4932    0.0598
+       8  TIM2ef+G4          4     -2604.1943      5330.3886         2.6586    0.0550
+       9  TPM1uf+G4          6     -2602.7670      5331.5340         3.8039    0.0310
+      10  TIM3ef+G4          4     -2604.8457      5331.6913         3.9613    0.0287
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TIM1+G4
+lnL:                -2599.8650
+Frequencies:        0.2647 0.2201 0.2389 0.2762
+Subst. Rates:       1.0000 2.1381 0.7012 0.7012 3.9737 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.4031
+Score:              5327.7300
+Weight:             0.2079
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.7311
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4070
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2612 0.2210 0.2389 0.2789 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012230 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TIM1+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TIM1+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM1+G4            7     -2599.8650      5329.7300         0.0000    0.2079
+       2  TrN+G4             6     -2600.9846      5329.9692         0.2392    0.1844
+       3  TIM2+G4            7     -2600.5334      5331.0668         1.3368    0.1065
+       4  TIM3+G4            7     -2600.7780      5331.5560         1.8260    0.0834
+       5  TIM1ef+G4          4     -2603.8692      5331.7383         2.0083    0.0762
+       6  TrNef+G4           3     -2604.9561      5331.9122         2.1822    0.0698
+       7  GTR+G4             9     -2599.1116      5332.2232         2.4932    0.0598
+       8  TIM2ef+G4          4     -2604.1943      5332.3886         2.6586    0.0550
+       9  TPM1uf+G4          6     -2602.7670      5333.5340         3.8039    0.0310
+      10  TIM3ef+G4          4     -2604.8457      5333.6913         3.9613    0.0287
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TIM1+G4
+lnL:                -2599.8650
+Frequencies:        0.2647 0.2201 0.2389 0.2762
+Subst. Rates:       1.0000 2.1381 0.7012 0.7012 3.9737 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.4031
+Score:              5329.7300
+Weight:             0.2079
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.7311
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.4070
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2612 0.2210 0.2389 0.2789 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012230 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TIM1+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TIM1+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TrN+G4             6     -3474.9685      7455.9552         0.0000    0.8060
+       2  TIM3+G4            7     -3472.6609      7459.3720         3.4168    0.1460
+       3  TIM2+G4            7     -3474.5187      7463.0877         7.1325    0.0228
+       4  TIM1+G4            7     -3474.9315      7463.9132         7.9580    0.0151
+       5  TrNef+G4           3     -3492.2233      7466.3687        10.4135    0.0044
+       6  TIM3ef+G4          4     -3488.3702      7466.6946        10.7394    0.0038
+       7  HKY+G4             5     -3486.3385      7470.6631        14.7079    0.0005
+       8  K80+G4             2     -3498.3866      7470.6634        14.7082    0.0005
+       9  TPM3+G4            3     -3494.4955      7470.9132        14.9579    0.0005
+      10  TIM2ef+G4          4     -3491.6976      7473.3493        17.3941    0.0001
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              TrN+G4
+lnL:                -3474.9685
+Frequencies:        0.2701 0.1931 0.2837 0.2532
+Subst. Rates:       1.0000 4.9973 1.0000 1.0000 12.7056 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0211
+Score:              7455.9552
+Weight:             0.8060
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.9906
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0212
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2701 0.1935 0.2836 0.2528 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010020 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TrN+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TrN+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM3+G4            7     -3472.6609      7073.3218         0.0000    0.5676
+       2  TrN+G4             6     -3474.9685      7075.9370         2.6152    0.1535
+       3  GTR+G4             9     -3472.1222      7076.2445         2.9227    0.1316
+       4  TIM2+G4            7     -3474.5187      7077.0374         3.7157    0.0886
+       5  TIM1+G4            7     -3474.9315      7077.8630         4.5412    0.0586
+       6  TPM3uf+G4          6     -3483.7617      7093.5234        20.2017    0.0000
+       7  TVM+G4             8     -3483.2114      7096.4228        23.1010    0.0000
+       8  HKY+G4             5     -3486.3385      7096.6769        23.3552    0.0000
+       9  TPM2uf+G4          6     -3485.8717      7097.7435        24.4217    0.0000
+      10  TPM1uf+G4          6     -3486.2991      7098.5982        25.2765    0.0000
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              TIM3+G4
+lnL:                -3472.6609
+Frequencies:        0.2700 0.1958 0.2835 0.2507
+Subst. Rates:       0.4639 3.8876 1.0000 0.4639 9.7010 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0214
+Score:              7073.3218
+Weight:             0.5676
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        1.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0213
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2702 0.1950 0.2833 0.2515 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012032 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TIM3+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TIM3+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  TIM3+G4            7     -3472.6609      7075.3218         0.0000    0.5676
+       2  TrN+G4             6     -3474.9685      7077.9370         2.6152    0.1535
+       3  GTR+G4             9     -3472.1222      7078.2445         2.9227    0.1316
+       4  TIM2+G4            7     -3474.5187      7079.0374         3.7157    0.0886
+       5  TIM1+G4            7     -3474.9315      7079.8630         4.5412    0.0586
+       6  TPM3uf+G4          6     -3483.7617      7095.5234        20.2017    0.0000
+       7  TVM+G4             8     -3483.2114      7098.4228        23.1010    0.0000
+       8  HKY+G4             5     -3486.3385      7098.6769        23.3552    0.0000
+       9  TPM2uf+G4          6     -3485.8717      7099.7435        24.4217    0.0000
+      10  TPM1uf+G4          6     -3486.2991      7100.5982        25.2765    0.0000
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              TIM3+G4
+lnL:                -3472.6609
+Frequencies:        0.2700 0.1958 0.2835 0.2507
+Subst. Rates:       0.4639 3.8876 1.0000 0.4639 9.7010 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0214
+Score:              7075.3218
+Weight:             0.5676
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        1.0000
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0213
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2702 0.1950 0.2833 0.2515 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 012032 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model TIM3+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m TIM3+G4
+
+BIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  JC+G4              1      -996.8790      2459.6161         0.0000    0.9075
+       2  K80+G4             2      -995.2070      2464.3041         4.6881    0.0871
+       3  TPM3+G4            3      -995.1986      2472.3193        12.7032    0.0016
+       4  TPM2+G4            3      -995.2043      2472.3308        12.7147    0.0016
+       5  TrNef+G4           3      -995.2045      2472.3312        12.7151    0.0016
+       6  TPM1+G4            3      -996.4031      2474.7283        15.1123    0.0005
+       7  F81+G4             4      -993.6342      2477.2225        17.6065    0.0001
+       8  TIM3ef+G4          4      -995.1897      2480.3336        20.7175    0.0000
+       9  TIM2ef+G4          4      -995.1999      2480.3539        20.7378    0.0000
+      10  HKY+G4             5      -991.9432      2481.8726        22.2565    0.0000
+--------------------------------------------------------------------------------
+Best model according to BIC
+---------------------------
+Model:              JC+G4
+lnL:                -996.8790
+Frequencies:        0.2500 0.2500 0.2500 0.2500
+Subst. Rates:       1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              2459.6161
+Weight:             0.9075
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.0002
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0215
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2496 0.2106 0.2692 0.2707 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 000000 -f 0.25,0.25,0.25,0.25 -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMA --JC69 -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model JC+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m JC+G4
+
+AIC       model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  HKY+G4             5      -991.9432      2107.8864         0.0000    0.1961
+       2  K80+G4             2      -995.2070      2108.4141         0.5277    0.1506
+       3  F81+G4             4      -993.6342      2109.2684         1.3820    0.0983
+       4  JC+G4              1      -996.8790      2109.7580         1.8717    0.0769
+       5  TrN+G4             6      -991.9192      2109.8384         1.9521    0.0739
+       6  TPM2uf+G4          6      -991.9393      2109.8787         1.9923    0.0724
+       7  TPM3+G4            3      -995.1986      2110.3971         2.5108    0.0559
+       8  TPM2+G4            3      -995.2043      2110.4087         2.5223    0.0556
+       9  TrNef+G4           3      -995.2045      2110.4091         2.5227    0.0556
+      10  TIM3+G4            7      -991.8686      2111.7373         3.8509    0.0286
+--------------------------------------------------------------------------------
+Best model according to AIC
+---------------------------
+Model:              HKY+G4
+lnL:                -991.9432
+Frequencies:        0.2494 0.2105 0.2691 0.2710
+Subst. Rates:       1.0000 2.8169 1.0000 1.0000 2.8169 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              2107.8864
+Weight:             0.1961
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.5363
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0215
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2495 0.2104 0.2692 0.2708 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010010 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model HKY+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m HKY+G4
+
+AICc      model              K            lnL          score          delta    weight
+--------------------------------------------------------------------------------
+       1  HKY+G4             5      -991.9432      2109.8864         0.0000    0.1961
+       2  K80+G4             2      -995.2070      2110.4141         0.5277    0.1506
+       3  F81+G4             4      -993.6342      2111.2684         1.3820    0.0983
+       4  JC+G4              1      -996.8790      2111.7580         1.8717    0.0769
+       5  TrN+G4             6      -991.9192      2111.8384         1.9521    0.0739
+       6  TPM2uf+G4          6      -991.9393      2111.8787         1.9923    0.0724
+       7  TPM3+G4            3      -995.1986      2112.3971         2.5108    0.0559
+       8  TPM2+G4            3      -995.2043      2112.4087         2.5223    0.0556
+       9  TrNef+G4           3      -995.2045      2112.4091         2.5227    0.0556
+      10  TIM3+G4            7      -991.8686      2113.7373         3.8509    0.0286
+--------------------------------------------------------------------------------
+Best model according to AICc
+---------------------------
+Model:              HKY+G4
+lnL:                -991.9432
+Frequencies:        0.2494 0.2105 0.2691 0.2710
+Subst. Rates:       1.0000 2.8169 1.0000 1.0000 2.8169 1.0000 
+Inv. sites prop:    -
+Gamma shape:        0.0215
+Score:              2109.8864
+Weight:             0.1961
+---------------------------
+Parameter importances
+---------------------------
+P.Inv:              -
+Gamma:              1.0000
+Gamma-Inv:          -
+Frequencies:        0.5363
+---------------------------
+Model averaged estimates
+---------------------------
+P.Inv:              -
+Alpha:              0.0215
+Alpha-P.Inv:        -
+P.Inv-Alpha:        -
+Frequencies:        0.2495 0.2104 0.2692 0.2708 
+
+Commands:
+  > phyml  -i ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m 010010 -f m -v 0 -a e -c 4 -o tlr
+  > raxmlHPC-SSE3 -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m GTRGAMMAX -n EXEC_NAME -p PARSIMONY_SEED
+  > raxml-ng --msa ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy --model HKY+G4
+  > paup -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy
+  > iqtree -s ../alignments/with_UNITE_env/concat_Ben_UNI_filt.phy -m HKY+G4
+Done

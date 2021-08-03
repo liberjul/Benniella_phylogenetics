@@ -1,6 +1,6 @@
 for i in ../alignments/with_UNITE_env/unaligned\.*.fasta
 do
-  if [[ "$i" != *"full"* ]]
+  if [ "$i" != *"full"* ]
   then
     outname=$(basename -- $i)
     echo ../alignments/with_UNITE_env/aligned${outname#?????????}

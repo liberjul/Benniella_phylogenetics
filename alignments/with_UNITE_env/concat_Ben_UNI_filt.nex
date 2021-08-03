@@ -49,7 +49,8 @@ begin mrbayes;
 	charset LSU =  834 - 2423;
 	charset SSU =  2424 - 3078;
 	partition currentPartition = 5: 5_8S, ITS1, ITS2, LSU, SSU;
-	lset applyto=(0, 1, 2, 3, 4, 5);
+	set partition = currentPartition;
+	lset applyto=(1, 2, 3, 4, 5);
 
 	lset nst = 6 rates=invgamma;
 	unlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all);

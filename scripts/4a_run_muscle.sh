@@ -1,6 +1,6 @@
 for i in ../alignments/multilocus/unaligned_SSU-LSU\.*.fasta
 do
-  if [[ "$i" != *"full"* ]]
+  if [ "$i" != *"full"* ]
   then
     outname=$(basename -- $i)
     echo ../alignments/multilocus/aligned${outname#?????????}
@@ -10,7 +10,7 @@ done
 
 for i in EF1a RPB1 1870
 do
-  if [[ "$i" != *"full"* ]]
+  if [ "$i" != *"full"* ]
   then
     outname=$(basename -- $i)
     echo ../alignments/multilocus/aligned_"$i".fasta
