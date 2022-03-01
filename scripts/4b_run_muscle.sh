@@ -7,3 +7,7 @@ do
     muscle -in $i -out ../alignments/with_UNITE_env/aligned${outname#?????????}
   fi
 done
+if [ -f ../alignments/with_UNITE_env/aligned.full.fasta ]
+then
+  rm ../alignments/with_UNITE_env/aligned.full.fasta
+fi

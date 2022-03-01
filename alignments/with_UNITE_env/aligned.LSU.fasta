@@ -334,6 +334,34 @@ ACAGCAGGACGGTGGCCATGGAAGTCGGAATCCGCTAAGGAGTGTGTAACAACTCACCTG
 CCGAATGAACTAGCCCTGAAAATGGATGGCGCTCAAGCGTGTTGCCCATAATTCGCCGTC
 AGGGTAAAAGCGAGGCCCTGACGAGTAGGCAGGCGTGGAGGTTGTGAAGAAGCTTTAGAC
 GTGAGTCTGAGTGAAACGGCCTCTAGTGCA
+>Benniella_nov_sp_MIWF_21_25|F|LSU Extracted LSU sequence (177 bp)
+TCTCGATCTCAAATCAAGTAAGACTACCCGCTGAACTTAAGCATATCAATAAGCGGAGGA
+AAAGAAACTAACAAGGATTCCCCTAGTAACGGCGAGTGAAGCGGGATGAGCTCAAATTTG
+AAATCTGGCTGGTTTGACCAGTCCGAGTTGTAGTTTAAAGAGGCGTTTTCGGTGGCA---
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------
 >UNITE_48995_United_States|F|LSU Extracted LSU sequence (920 bp)
 ACTCGATCTCAAATCAAGTAAGACTACCCGCTGAACTTAAGCATATCAATAAGCGGAGG-
 AAAGAAACTAACAAGGATTCCCCTAGTAACGGCGAGTGAAGCGGGATGAGCTCAAATTTG
@@ -381,7 +409,7 @@ GTGTTT-GGTGGCAAACCCATACGCGTAATGAAAGTGAACGTAGGTGCCATCCGCAAGGT
 GCAGCATCGACCGATCTTGATATTTTTGGATAGATTTGAGTAAGAGCATACATGCTGGGA
 CCCGAAAGATGGTGAACTATGCCTGAATAGGGTGAAGCCAGAGGAAACTCTGGTGGAGGC
 TCGTAGCGATTCTGACGTGCAAATCGATCGTCAAATTTGGGTATAGGGGCGAAAGACTAA
-TCGAACCATCTAGTAGCTGGTTCCTGCCGAAGTT-TCCCTCAGGATAGCAGAGACTCGTT
+TCGAACCATCTAGTAGCTGGTTCCTGCCGAAG-TTTCCCTCAGGATAGCAGAGACTCGTT
 CAGTTTTATGAGGTAAAGCGAATGATTAGAGGCCTTGGGGCTGAAACAGCCTTAACCTAT
 TCTCAAACTTTAAATATGTAAGAAGTCCTTGCTGCTTAATTGAGCCTGGACATTTGAATG
 AGAGTCTCTAGTGGGCCATTTTTGGTAAGCAGAACTGGCGATGCGGGATGAACCGAACGC
@@ -745,7 +773,7 @@ GTGTTTGGGTGGCAAACCCATACGCGTAATGAAAGTGAACGTAGGTGCGATCCGCAAGGT
 GCAGCATCGACCGATCTTGATATTTTTGGATAGATTTGAGTAAGAGCATACATGCTGGGA
 CCCGAAAGATGGTGAACTATGCCTGAATAGGGTGAAGCCAGAGGAAACTCTGGTGGAGGC
 TCGTAGCGATTCTGACGTGCAAATCGATCGTCAAATTTGGGTATAGGGGCGAAAGACTAA
-TCGAACCATCTAGTAGCTGGTTCCTGCCGAAGTT-TCCCTCAGGATAGCAGAGACTCGTT
+TCGAACCATCTAGTAGCTGGTTCCTGCCGAAG-TTTCCCTCAGGATAGCAGAGACTCGTT
 CAGTTTTATGAGGTAAAGCGAATGATTAGAGGCCTTGGGGCTGAAACAGCCTTAACCTAT
 TCTCAAACTTTAAATATGTAAGAAGTCCTTG-----------------------------
 ------------------------------------------------------------
