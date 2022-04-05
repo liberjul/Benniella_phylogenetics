@@ -21,3 +21,7 @@ ModelTest-NG was used to assess the best nucleotide substitution models for each
 As above RAxML-NG and Mr. Bayes were used for inference with corresponding inputs.
 
 File name outputs of modeltest-ng and raxml-ng include dates, so check that 7b and 8b are run on the same day.
+
+### Benniella genomes
+
+Scripts are numbered <number>c<script_name>.sh, to be run in order. This pipeline requires that genome sequencing reads be downloaded from the [JGI Genome Portal](https://genome.jgi.doe.gov/portal/). 2c can be skipped because reads are already trimmed and filtered when downloaded.

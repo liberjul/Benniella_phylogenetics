@@ -1,0 +1,12 @@
+sbatch 3c_aaftf_assemble_AP5.sh
+sbatch 3c_aaftf_assemble_JL1.sh
+sbatch 3c_aaftf_assemble_JL29.sh
+sbatch 3c_aaftf_assemble_JL58.sh
+sbatch 3c_aaftf_assemble_JL62.sh
+sbatch 3c_aaftf_assemble_JL122.sh
+sbatch 3c_aaftf_assemble_JU19.sh
+sbatch 3c_aaftf_assemble_JU20.sh
+sbatch 3c_aaftf_assemble_NVP103.sh
+sbatch 3c_aaftf_assemble_F10.sh
+sbatch 3c_aaftf_assemble_BP007.sh
+sbatch 3c_aaftf_assemble_Andro003.sh
